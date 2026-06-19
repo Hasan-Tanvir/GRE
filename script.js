@@ -119,20 +119,37 @@ async function saveRemoteProgress() {
   }
 }
 
-async function signInWithEmail(email) {
+async function signInWithCredentials(email, password) {
   if (!remoteSyncEnabled || !supabaseClient) return;
-  const { data, error } = await supabaseClient.auth.signInWithOtp({ email });
-  if (error) {
-    console.warn('Supabase sign-in error:', error.message || error);
-    updateAuthStatus('Sign-in failed. Try again.');
+  if (!email || !password) {
+    updateAuthStatus('Enter both email and password.');
     return;
   }
-  updateAuthStatus('Check your email for the sign-in link.');
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    console.warn('Supabase sign-in error:', error.message || error);
+    updateAuthStatus('Sign-in failed. Check your credentials.');
+    return;
+  }
+
+  if (data?.session) {
+    currentUser = data.session.user;
+    updateAuthUi();
+    await loadRemoteProgress();
+  }
 }
 
 async function signOutSupabase() {
   if (!remoteSyncEnabled || !supabaseClient) return;
-  await supabaseClient.auth.signOut();
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) {
+    console.warn('Supabase sign-out error:', error.message || error);
+  }
   currentUser = null;
   updateAuthUi();
 }
@@ -142,17 +159,20 @@ function updateAuthUi() {
   const signInButton = document.getElementById('sign-in-button');
   const signOutButton = document.getElementById('sign-out-button');
   const authEmail = document.getElementById('auth-email');
+  const authPassword = document.getElementById('auth-password');
 
-  if (!authStatus || !signInButton || !signOutButton || !authEmail) return;
+  if (!authStatus || !signInButton || !signOutButton || !authEmail || !authPassword) return;
 
   if (currentUser) {
     authStatus.textContent = `Signed in as ${currentUser.email || currentUser.id}. Your progress syncs only for you.`;
     authEmail.classList.add('hidden');
+    authPassword.classList.add('hidden');
     signInButton.classList.add('hidden');
     signOutButton.classList.remove('hidden');
   } else {
-    authStatus.textContent = 'Sign in with your email to sync only your progress.';
+    authStatus.textContent = 'Sign in with your Supabase email and password to sync only your progress.';
     authEmail.classList.remove('hidden');
+    authPassword.classList.remove('hidden');
     signInButton.classList.remove('hidden');
     signOutButton.classList.add('hidden');
   }
@@ -496,17 +516,19 @@ popupBackdrop.addEventListener('click', closePopupPanel);
 studyNotes.addEventListener('input', saveNotes);
 
 const authEmailInput = document.getElementById('auth-email');
+const authPasswordInput = document.getElementById('auth-password');
 const signInButton = document.getElementById('sign-in-button');
 const signOutButton = document.getElementById('sign-out-button');
 
-if (signInButton && authEmailInput) {
+if (signInButton && authEmailInput && authPasswordInput) {
   signInButton.addEventListener('click', () => {
     const email = authEmailInput.value.trim();
-    if (!email) {
-      updateAuthStatus('Enter your email first.');
+    const password = authPasswordInput.value.trim();
+    if (!email || !password) {
+      updateAuthStatus('Enter your email and password.');
       return;
     }
-    signInWithEmail(email);
+    signInWithCredentials(email, password);
   });
 }
 

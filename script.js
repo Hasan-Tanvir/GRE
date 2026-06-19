@@ -49,7 +49,7 @@ let supabaseClient = null;
 let remoteSyncEnabled = true;
 let currentUser = null;
 
-function initSupabase() {
+async function initSupabase() {
   if (!window.supabase || !window.supabase.createClient) {
     remoteSyncEnabled = false;
     console.warn('Supabase library not available; remote sync disabled.');
@@ -58,6 +58,19 @@ function initSupabase() {
 
   try {
     supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const {
+      data: { session },
+      error: sessionError,
+    } = await supabaseClient.auth.getSession();
+
+    if (sessionError) {
+      console.warn('Supabase session restore failed:', sessionError.message || sessionError);
+    }
+
+    currentUser = session?.user || null;
+    updateAuthUi();
+
     supabaseClient.auth.onAuthStateChange((event, session) => {
       currentUser = session?.user || null;
       updateAuthUi();
@@ -65,6 +78,10 @@ function initSupabase() {
         loadRemoteProgress();
       }
     });
+
+    if (currentUser) {
+      await loadRemoteProgress();
+    }
   } catch (error) {
     remoteSyncEnabled = false;
     console.warn('Supabase initialization failed:', error.message || error);
@@ -537,12 +554,11 @@ if (signOutButton) {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-  initSupabase();
+  await initSupabase();
   buildGroupBar();
   setMode(false);
   setStatusFilter('all');
   loadSavedData();
-  await loadRemoteProgress();
   filterBank();
   updatePracticeStats();
   // Try to load remote vocab pronunciation URLs (optional file)

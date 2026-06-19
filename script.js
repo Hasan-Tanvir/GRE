@@ -18,6 +18,7 @@ const closePopup = document.getElementById('close-popup');
 const popupBackdrop = document.getElementById('popup-backdrop');
 const detailWord = document.getElementById('detail-word');
 const detailPhonetic = document.getElementById('detail-phonetic');
+const detailPos = document.getElementById('detail-pos');
 const detailGroup = document.getElementById('detail-group');
 const detailDefinition = document.getElementById('detail-definition');
 const detailSynonyms = document.getElementById('detail-synonyms');
@@ -39,6 +40,7 @@ let selectedGroups = [];
 let multiSelectMode = true;
 let activeStatusFilter = 'all';
 let rangeStartGroup = null;
+let pronunciationMap = {};
 
 function loadSavedData() {
   const savedStatus = localStorage.getItem(STORAGE_STATUS);
@@ -94,10 +96,27 @@ function renderBank() {
 function showDetail(entry) {
   selectedWord = entry;
   detailWord.textContent = entry.word;
-  detailPhonetic.textContent = entry.phonetic
-    ? `Phonetics: ${entry.phonetic}`
-    : `Phonetics: /${entry.word.toLowerCase()}/`;
   detailGroup.textContent = `Group ${entry.group}`;
+  // Part of speech (prefer explicit field, fallback to nested definitions)
+  const pos = entry.part_of_speech || (entry.definitions && entry.definitions[0] && entry.definitions[0].part_of_speech) || '';
+  detailPos.textContent = pos ? `Part of speech: ${pos}` : '';
+
+  // Pronunciation: show play button if we have an audio URL from remote data
+  const audioUrl = pronunciationMap[entry.word] || pronunciationMap[entry.slug] || null;
+  if (audioUrl) {
+    detailPhonetic.innerHTML = 'Pronunciation:' + ` <button class="play-pronunciation" data-src="${audioUrl}">Play audio</button>`;
+    const btn = detailPhonetic.querySelector('.play-pronunciation');
+    btn.addEventListener('click', () => {
+      try {
+        const a = new Audio(btn.dataset.src);
+        a.play();
+      } catch (e) {
+        console.error('Audio play failed', e);
+      }
+    });
+  } else {
+    detailPhonetic.textContent = '';
+  }
   detailDefinition.textContent = '';
   detailSynonyms.textContent = '';
   detailExample.textContent = '';
@@ -343,6 +362,19 @@ window.addEventListener('DOMContentLoaded', () => {
   loadSavedData();
   filterBank();
   updatePracticeStats();
+  // Try to load remote vocab pronunciation URLs (optional file)
+  fetch('remote-vocab.json').then((res) => {
+    if (!res.ok) return null;
+    return res.json();
+  }).then((data) => {
+    if (!data) return;
+    data.forEach((item) => {
+      if (item.word) pronunciationMap[item.word] = item.pronunciation_url || item.pronunciation || null;
+      if (item.slug) pronunciationMap[item.slug] = item.pronunciation_url || item.pronunciation || null;
+    });
+  }).catch(() => {
+    // silent fail if file isn't present or JSON invalid
+  });
 });
 
 function shuffleArray(array) {

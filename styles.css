@@ -275,6 +275,18 @@ body.modal-open {
   font-size: 0.98rem;
   letter-spacing: 0.01em;
 }
+.play-pronunciation {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #eef2ff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.play-pronunciation:hover { transform: translateY(-1px); }
 .detail-definition,
 .detail-synonyms,
 .detail-example {

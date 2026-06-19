@@ -95,7 +95,7 @@ async function loadRemoteProgress() {
     .from(SUPABASE_TABLE)
     .select('status,notes')
     .eq('id', currentUser.id)
-    .single();
+    .maybeSingle();
 
   if (error && error.code !== 'PGRST116') {
     console.warn('Supabase load error:', error.message || error);

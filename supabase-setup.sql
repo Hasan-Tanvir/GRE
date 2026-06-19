@@ -17,28 +17,33 @@ begin
 end;
 $$ language plpgsql;
 
+drop trigger if exists trigger_update_vocab_progress_timestamp on public.vocab_progress;
 create trigger trigger_update_vocab_progress_timestamp
 before update on public.vocab_progress
 for each row execute function public.update_vocab_progress_timestamp();
 
 alter table public.vocab_progress enable row level security;
 
+drop policy if exists "Select own vocab progress" on public.vocab_progress;
 create policy "Select own vocab progress"
   on public.vocab_progress
   for select
   using (auth.uid() = id);
 
+drop policy if exists "Insert own vocab progress" on public.vocab_progress;
 create policy "Insert own vocab progress"
   on public.vocab_progress
   for insert
   with check (auth.uid() = id);
 
+drop policy if exists "Update own vocab progress" on public.vocab_progress;
 create policy "Update own vocab progress"
   on public.vocab_progress
   for update
   using (auth.uid() = id)
   with check (auth.uid() = id);
 
+drop policy if exists "Delete own vocab progress" on public.vocab_progress;
 create policy "Delete own vocab progress"
   on public.vocab_progress
   for delete

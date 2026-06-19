@@ -28,23 +28,23 @@ drop policy if exists "Select own vocab progress" on public.vocab_progress;
 create policy "Select own vocab progress"
   on public.vocab_progress
   for select
-  using (auth.uid() = id);
+  using (auth.uid()::text = id);
 
 drop policy if exists "Insert own vocab progress" on public.vocab_progress;
 create policy "Insert own vocab progress"
   on public.vocab_progress
   for insert
-  with check (auth.uid() = id);
+  with check (auth.uid()::text = id);
 
 drop policy if exists "Update own vocab progress" on public.vocab_progress;
 create policy "Update own vocab progress"
   on public.vocab_progress
   for update
-  using (auth.uid() = id)
-  with check (auth.uid() = id);
+  using (auth.uid()::text = id)
+  with check (auth.uid()::text = id);
 
 drop policy if exists "Delete own vocab progress" on public.vocab_progress;
 create policy "Delete own vocab progress"
   on public.vocab_progress
   for delete
-  using (auth.uid() = id);
+  using (auth.uid()::text = id);

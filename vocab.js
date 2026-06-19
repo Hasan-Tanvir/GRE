@@ -1,6 +1,7 @@
 ﻿const VOCAB_DATA = [
     {
         "word":  "abound",
+        "phonetic": "/əˈbaʊnd/",
         "definition":  "be present in large quantities",
         "part_of_speech":  "verb",
         "group":  1,

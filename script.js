@@ -103,7 +103,24 @@ function showDetail(entry) {
 
   // Pronunciation: show play button if we have an audio URL from remote data
   const audioUrl = pronunciationMap[entry.word] || pronunciationMap[entry.slug] || null;
-  if (audioUrl) {
+  // If the entry includes a phonetic/IPA string, show it plainly (preferred)
+  if (entry.phonetic) {
+    detailPhonetic.textContent = entry.phonetic;
+    // if audio also available, add a small play button after the text
+    if (audioUrl) {
+      detailPhonetic.innerHTML = `${escapeHtml(entry.phonetic)} <button class="play-pronunciation" data-src="${audioUrl}">Play audio</button>`;
+      const btn = detailPhonetic.querySelector('.play-pronunciation');
+      btn.addEventListener('click', () => {
+        try {
+          const a = new Audio(btn.dataset.src);
+          a.play();
+        } catch (e) {
+          console.error('Audio play failed', e);
+        }
+      });
+    }
+  } else if (audioUrl) {
+    // No textual phonetic provided — show audio play button only
     detailPhonetic.innerHTML = 'Pronunciation:' + ` <button class="play-pronunciation" data-src="${audioUrl}">Play audio</button>`;
     const btn = detailPhonetic.querySelector('.play-pronunciation');
     btn.addEventListener('click', () => {

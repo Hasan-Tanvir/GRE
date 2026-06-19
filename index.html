@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocab Mountain | GRE Verbal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">GRE Verbal Practice</p>
+        <h1>Vocab Mountain Review</h1>
+        <p>Choose groups, mark what you know, and reveal definitions with examples.</p>
+      </div>
+      <div class="practice-stats">
+        <div class="practice-card">
+          <span>Known</span>
+          <strong id="known-count">0</strong>
+        </div>
+        <div class="practice-card">
+          <span>Forgot</span>
+          <strong id="forgot-count">0</strong>
+        </div>
+        <div class="practice-card">
+          <span>Selected words</span>
+          <strong id="total-count">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card bank-card">
+        <div class="section-header">
+          <div>
+            <h2>Group practice</h2>
+            <p>Select groups and review words in a list. Click a word to open its details and mark whether you know it.</p>
+          </div>
+          <div class="bank-actions">
+            <button id="shuffle-button" class="secondary-button">Shuffle</button>
+            <button id="clear-filter-button" class="secondary-button">Reset filters</button>
+          </div>
+        </div>
+        <div class="field-row">
+          <input id="bank-search" type="search" placeholder="Search words" />
+        </div>
+        <div class="group-control-panel">
+          <div class="group-toggle">
+            <button id="mode-single" type="button" class="secondary-button">Single group</button>
+            <button id="mode-multi" type="button" class="secondary-button active">Range groups</button>
+          </div>
+          <p id="group-selection-label" class="group-selection-label">Selected groups: All</p>
+          <p class="select-hint">In range mode, click one group to start and another to end the range.</p>
+          <div id="group-bar" class="group-bar multi-mode" aria-label="Group selection"></div>
+          <div class="status-filters">
+            <button type="button" class="status-button active" data-filter="all">All</button>
+            <button type="button" class="status-button" data-filter="known">Known</button>
+            <button type="button" class="status-button" data-filter="forgot">Forgot</button>
+          </div>
+        </div>
+        <div class="bank-info">
+          Showing <strong id="bank-count">0</strong> words.
+        </div>
+        <p class="known-summary">Known words: <span id="known-list">None yet</span></p>
+        <div class="bank-practice-grid">
+          <div class="bank-list-panel">
+            <ul id="bank-list" class="bank-list"></ul>
+          </div>
+          <aside id="word-detail" class="word-detail hidden">
+            <button id="close-popup" class="close-button" aria-label="Close word options">×</button>
+            <h3 id="detail-word"></h3>
+            <p id="detail-group" class="detail-meta"></p>
+            <p id="detail-definition" class="detail-definition"></p>
+            <p id="detail-synonyms" class="detail-synonyms"></p>
+            <p id="detail-example" class="detail-example"></p>
+            <div class="detail-actions">
+              <button id="know-button" class="secondary-button">Know</button>
+              <button id="dontknow-button" class="secondary-button">Don't know</button>
+              <button id="reveal-button" class="secondary-button">Show definition</button>
+              <button id="speak-button" class="secondary-button">Speak</button>
+              <button id="reset-button" class="secondary-button">Reset</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="card notes-card">
+        <h2>Study plan</h2>
+        <p>Use this area to add your study reminders and review strategy.</p>
+        <textarea id="study-notes" placeholder="Write your plan..."></textarea>
+      </section>
+    </main>
+    <div id="popup-backdrop" class="popup-backdrop hidden"></div>
+  </div>
+
+  <script src="vocab.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

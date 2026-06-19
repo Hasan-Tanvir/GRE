@@ -561,19 +561,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   loadSavedData();
   filterBank();
   updatePracticeStats();
-  // Try to load remote vocab pronunciation URLs (optional file)
-  fetch('remote-vocab.json').then((res) => {
-    if (!res.ok) return null;
-    return res.json();
-  }).then((data) => {
-    if (!data) return;
-    data.forEach((item) => {
-      if (item.word) pronunciationMap[item.word] = item.pronunciation_url || item.pronunciation || null;
-      if (item.slug) pronunciationMap[item.slug] = item.pronunciation_url || item.pronunciation || null;
-    });
-  }).catch(() => {
-    // silent fail if file isn't present or JSON invalid
-  });
 });
 
 function shuffleArray(array) {

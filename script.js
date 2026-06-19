@@ -42,6 +42,127 @@ let activeStatusFilter = 'all';
 let rangeStartGroup = null;
 let pronunciationMap = {};
 
+const SUPABASE_URL = 'https://jwqyenqxyhiqbvywznxb.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3cXllbnF4eWhpcWJ2eXd6bnhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4NzE1ODYsImV4cCI6MjA5NzQ0NzU4Nn0.tDhdEB7LxGrH_dDitdo9yU4oSb7b6IwWdH6CMFVjrGw';
+const SUPABASE_TABLE = 'vocab_progress';
+let supabaseClient = null;
+let remoteSyncEnabled = true;
+let currentUser = null;
+
+function initSupabase() {
+  if (!window.supabase || !window.supabase.createClient) {
+    remoteSyncEnabled = false;
+    console.warn('Supabase library not available; remote sync disabled.');
+    return;
+  }
+
+  try {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+      currentUser = session?.user || null;
+      updateAuthUi();
+      if (currentUser) {
+        loadRemoteProgress();
+      }
+    });
+  } catch (error) {
+    remoteSyncEnabled = false;
+    console.warn('Supabase initialization failed:', error.message || error);
+  }
+}
+
+async function loadRemoteProgress() {
+  if (!remoteSyncEnabled || !supabaseClient || !currentUser) return;
+
+  const { data, error } = await supabaseClient
+    .from(SUPABASE_TABLE)
+    .select('status,notes')
+    .eq('id', currentUser.id)
+    .single();
+
+  if (error && error.code !== 'PGRST116') {
+    console.warn('Supabase load error:', error.message || error);
+    return;
+  }
+
+  if (data) {
+    if (data.status && typeof data.status === 'object') {
+      wordStatus = data.status;
+      saveStatus(false);
+    }
+    if (typeof data.notes === 'string') {
+      studyNotes.value = data.notes;
+      saveNotes(false);
+    }
+    renderBank();
+    updatePracticeStats();
+  } else if (Object.keys(wordStatus).length > 0 || studyNotes.value.trim()) {
+    await saveRemoteProgress();
+  }
+}
+
+async function saveRemoteProgress() {
+  if (!remoteSyncEnabled || !supabaseClient || !currentUser) return;
+
+  const payload = {
+    id: currentUser.id,
+    status: wordStatus,
+    notes: studyNotes.value,
+  };
+
+  const { error } = await supabaseClient
+    .from(SUPABASE_TABLE)
+    .upsert(payload, { onConflict: 'id' });
+
+  if (error) {
+    console.warn('Supabase save error:', error.message || error);
+  }
+}
+
+async function signInWithEmail(email) {
+  if (!remoteSyncEnabled || !supabaseClient) return;
+  const { data, error } = await supabaseClient.auth.signInWithOtp({ email });
+  if (error) {
+    console.warn('Supabase sign-in error:', error.message || error);
+    updateAuthStatus('Sign-in failed. Try again.');
+    return;
+  }
+  updateAuthStatus('Check your email for the sign-in link.');
+}
+
+async function signOutSupabase() {
+  if (!remoteSyncEnabled || !supabaseClient) return;
+  await supabaseClient.auth.signOut();
+  currentUser = null;
+  updateAuthUi();
+}
+
+function updateAuthUi() {
+  const authStatus = document.getElementById('auth-status');
+  const signInButton = document.getElementById('sign-in-button');
+  const signOutButton = document.getElementById('sign-out-button');
+  const authEmail = document.getElementById('auth-email');
+
+  if (!authStatus || !signInButton || !signOutButton || !authEmail) return;
+
+  if (currentUser) {
+    authStatus.textContent = `Signed in as ${currentUser.email || currentUser.id}. Your progress syncs only for you.`;
+    authEmail.classList.add('hidden');
+    signInButton.classList.add('hidden');
+    signOutButton.classList.remove('hidden');
+  } else {
+    authStatus.textContent = 'Sign in with your email to sync only your progress.';
+    authEmail.classList.remove('hidden');
+    signInButton.classList.remove('hidden');
+    signOutButton.classList.add('hidden');
+  }
+}
+
+function updateAuthStatus(message) {
+  const authStatus = document.getElementById('auth-status');
+  if (authStatus) authStatus.textContent = message;
+}
+
 function loadSavedData() {
   const savedStatus = localStorage.getItem(STORAGE_STATUS);
   const savedNotes = localStorage.getItem(STORAGE_NOTES);
@@ -63,6 +184,7 @@ function loadSavedData() {
 
 function saveNotes() {
   localStorage.setItem(STORAGE_NOTES, studyNotes.value);
+  saveRemoteProgress();
 }
 
 
@@ -183,6 +305,7 @@ function setPracticeStatus(status) {
     wordStatus[selectedWord.word] = status;
   }
   saveStatus();
+  saveRemoteProgress();
   renderBank();
   updateDetailButtons();
 }
@@ -372,11 +495,32 @@ popupBackdrop.addEventListener('click', closePopupPanel);
 
 studyNotes.addEventListener('input', saveNotes);
 
-window.addEventListener('DOMContentLoaded', () => {
+const authEmailInput = document.getElementById('auth-email');
+const signInButton = document.getElementById('sign-in-button');
+const signOutButton = document.getElementById('sign-out-button');
+
+if (signInButton && authEmailInput) {
+  signInButton.addEventListener('click', () => {
+    const email = authEmailInput.value.trim();
+    if (!email) {
+      updateAuthStatus('Enter your email first.');
+      return;
+    }
+    signInWithEmail(email);
+  });
+}
+
+if (signOutButton) {
+  signOutButton.addEventListener('click', signOutSupabase);
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+  initSupabase();
   buildGroupBar();
   setMode(false);
   setStatusFilter('all');
   loadSavedData();
+  await loadRemoteProgress();
   filterBank();
   updatePracticeStats();
   // Try to load remote vocab pronunciation URLs (optional file)

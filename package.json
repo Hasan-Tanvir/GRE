@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "arpabet-to-ipa": "^1.0.0",
+    "cmu-pronouncing-dictionary": "^3.0.0"
+  }
+}

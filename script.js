@@ -17,6 +17,7 @@ const wordDetail = document.getElementById('word-detail');
 const closePopup = document.getElementById('close-popup');
 const popupBackdrop = document.getElementById('popup-backdrop');
 const detailWord = document.getElementById('detail-word');
+const detailPhonetic = document.getElementById('detail-phonetic');
 const detailGroup = document.getElementById('detail-group');
 const detailDefinition = document.getElementById('detail-definition');
 const detailSynonyms = document.getElementById('detail-synonyms');
@@ -93,6 +94,9 @@ function renderBank() {
 function showDetail(entry) {
   selectedWord = entry;
   detailWord.textContent = entry.word;
+  detailPhonetic.textContent = entry.phonetic
+    ? `Phonetics: ${entry.phonetic}`
+    : `Phonetics: /${entry.word.toLowerCase()}/`;
   detailGroup.textContent = `Group ${entry.group}`;
   detailDefinition.textContent = '';
   detailSynonyms.textContent = '';

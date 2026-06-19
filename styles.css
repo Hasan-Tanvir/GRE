@@ -266,8 +266,14 @@ body.modal-open {
   cursor: pointer;
 }
 .detail-meta {
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   color: #9bb7ff;
+}
+.detail-phonetic {
+  margin: 0 0 14px;
+  color: #c8d4ff;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
 }
 .detail-definition,
 .detail-synonyms,

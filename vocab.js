@@ -13255,5 +13255,1214 @@ const VOCAB_DATA = [
             "epitomize"
         ],
         "phonetic": "/ɹiːkəˈpɪtʃʊleɪt/"
+    },
+    {
+        "word": "aplomb",
+        "phonetic": "/əˈplɒm/",
+        "definition": "self-confidence or assurance, especially under pressure",
+        "part_of_speech": "noun",
+        "group": 35,
+        "example": "She handled the hostile questions with remarkable aplomb.",
+        "synonyms": [
+            "poise",
+            "confidence",
+            "assurance"
+        ]
+    },
+    {
+        "word": "apposite",
+        "phonetic": "/ˈæpəzɪt/",
+        "definition": "highly relevant and appropriate",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "His comment was apposite to the discussion at hand.",
+        "synonyms": [
+            "apt",
+            "relevant",
+            "fitting"
+        ]
+    },
+    {
+        "word": "beholden",
+        "phonetic": "/bɪˈhoʊldən/",
+        "definition": "indebted or obligated to someone",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "After the mentor saved her career, she felt beholden to him.",
+        "synonyms": [
+            "indebted",
+            "obligated",
+            "grateful"
+        ]
+    },
+    {
+        "word": "belittle",
+        "phonetic": "/bɪˈlɪtəl/",
+        "definition": "to make someone or something seem less important or significant",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "Do not belittle her accomplishments; she worked hard to earn them.",
+        "synonyms": [
+            "disparage",
+            "diminish",
+            "undervalue"
+        ]
+    },
+    {
+        "word": "cluster",
+        "phonetic": "/ˈklʌstər/",
+        "definition": "a group of similar things or people positioned closely together",
+        "part_of_speech": "noun",
+        "group": 35,
+        "example": "A cluster of shoppers gathered in front of the new store.",
+        "synonyms": [
+            "group",
+            "clump",
+            "aggregation"
+        ]
+    },
+    {
+        "word": "coherent",
+        "phonetic": "/koʊˈhɪərənt/",
+        "definition": "logically connected and easy to understand",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "Her presentation was clear, coherent, and convincing.",
+        "synonyms": [
+            "logical",
+            "consistent",
+            "lucid"
+        ]
+    },
+    {
+        "word": "contemplate",
+        "phonetic": "/ˈkɒntəmpleɪt/",
+        "definition": "to think carefully and at length about something",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "He sat quietly to contemplate the next step in his career.",
+        "synonyms": [
+            "consider",
+            "ponder",
+            "deliberate"
+        ]
+    },
+    {
+        "word": "crafty",
+        "phonetic": "/ˈkræfti/",
+        "definition": "skilled at achieving goals by clever or cunning means",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "The crafty negotiator secured a much better deal than expected.",
+        "synonyms": [
+            "cunning",
+            "sly",
+            "artful"
+        ]
+    },
+    {
+        "word": "dismantle",
+        "phonetic": "/dɪsˈmæntəl/",
+        "definition": "to take something apart piece by piece",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "The engineers had to dismantle the machine to repair the broken part.",
+        "synonyms": [
+            "disassemble",
+            "take apart",
+            "demolish"
+        ]
+    },
+    {
+        "word": "elaborate",
+        "phonetic": "/ɪˈlæbərət/",
+        "definition": "involving many carefully arranged parts or details",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "The architect presented an elaborate plan for the new museum.",
+        "synonyms": [
+            "detailed",
+            "intricate",
+            "complex"
+        ]
+    },
+    {
+        "word": "exegesis",
+        "phonetic": "/ˌɛksəˈdʒiːsɪs/",
+        "definition": "a critical explanation or interpretation of a text",
+        "part_of_speech": "noun",
+        "group": 35,
+        "example": "Her exegesis of the poem revealed layers of hidden meaning.",
+        "synonyms": [
+            "interpretation",
+            "analysis",
+            "explanation"
+        ]
+    },
+    {
+        "word": "forgo",
+        "phonetic": "/fɔːrˈɡoʊ/",
+        "definition": "to give up or do without something",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "He decided to forgo dessert in order to keep his diet on track.",
+        "synonyms": [
+            "relinquish",
+            "abstain from",
+            "waive"
+        ]
+    },
+    {
+        "word": "impenetrable",
+        "phonetic": "/ɪmˈpɛnɪtrəbəl/",
+        "definition": "impossible to understand or penetrate",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "The ancient manuscript was written in an impenetrable code.",
+        "synonyms": [
+            "inscrutable",
+            "impervious",
+            "inaccessible"
+        ]
+    },
+    {
+        "word": "impervious",
+        "phonetic": "/ɪmˈpɜːrviəs/",
+        "definition": "not affected or influenced by something",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "She remained impervious to the insults and kept working calmly.",
+        "synonyms": [
+            "resistant",
+            "unaffected",
+            "impermeable"
+        ]
+    },
+    {
+        "word": "inalienable",
+        "phonetic": "/ɪnˈeɪliənəbl/",
+        "definition": "unable to be taken away or denied",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "Freedom of speech is considered an inalienable right.",
+        "synonyms": [
+            "inherent",
+            "absolute",
+            "inviolable"
+        ]
+    },
+    {
+        "word": "inept",
+        "phonetic": "/ˌɪˈnɛpt/",
+        "definition": "lacking skill or ability",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "His inept handling of the project cost the company money.",
+        "synonyms": [
+            "incompetent",
+            "clumsy",
+            "bungling"
+        ]
+    },
+    {
+        "word": "martinet",
+        "phonetic": "/ˌmɑːrtəˈnɛt/",
+        "definition": "a strict disciplinarian who demands obedience",
+        "part_of_speech": "noun",
+        "group": 35,
+        "example": "The drill sergeant was a martinet who never tolerated mistakes.",
+        "synonyms": [
+            "disciplinarian",
+            "stickler",
+            "taskmaster"
+        ]
+    },
+    {
+        "word": "narcissism",
+        "phonetic": "/ˈnɑːrsɪˌsɪzəm/",
+        "definition": "excessive self-admiration or self-centeredness",
+        "part_of_speech": "noun",
+        "group": 35,
+        "example": "Her constant need for attention was a sign of narcissism.",
+        "synonyms": [
+            "egotism",
+            "vanity",
+            "self-centeredness"
+        ]
+    },
+    {
+        "word": "objurgation",
+        "phonetic": "/ˌɒbdʒərˈɡeɪʃən/",
+        "definition": "a harsh rebuke or scolding",
+        "part_of_speech": "noun",
+        "group": 35,
+        "example": "He received an objurgation from his boss after missing the deadline.",
+        "synonyms": [
+            "rebuke",
+            "reprimand",
+            "scolding"
+        ]
+    },
+    {
+        "word": "passable",
+        "phonetic": "/ˈpæsəbəl/",
+        "definition": "good enough but not outstanding",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "Her essay was passable, but it lacked originality.",
+        "synonyms": [
+            "adequate",
+            "tolerable",
+            "satisfactory"
+        ]
+    },
+    {
+        "word": "penetrating",
+        "phonetic": "/ˈpɛnəˌtreɪtɪŋ/",
+        "definition": "deeply perceptive or sharp",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "His penetrating analysis exposed the heart of the problem.",
+        "synonyms": [
+            "insightful",
+            "acute",
+            "piercing"
+        ]
+    },
+    {
+        "word": "picturesque",
+        "phonetic": "/ˌpɪktʃəˈrɛsk/",
+        "definition": "visually charming or striking, like a picture",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "The village was nestled in a picturesque valley.",
+        "synonyms": [
+            "scenic",
+            "quaint",
+            "charming"
+        ]
+    },
+    {
+        "word": "reflect",
+        "phonetic": "/rɪˈflɛkt/",
+        "definition": "to think deeply or carefully about something",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "He paused to reflect on how far he had come.",
+        "synonyms": [
+            "ponder",
+            "consider",
+            "contemplate"
+        ]
+    },
+    {
+        "word": "resourceful",
+        "phonetic": "/rɪˈsɔːrsfəl/",
+        "definition": "able to find quick and clever ways to overcome difficulties",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "A resourceful leader can navigate any crisis.",
+        "synonyms": [
+            "ingenious",
+            "capable",
+            "inventive"
+        ]
+    },
+    {
+        "word": "retrench",
+        "phonetic": "/rɪˈtrɛntʃ/",
+        "definition": "to cut back or reduce expenses or effort",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "The company had to retrench after the market downturn.",
+        "synonyms": [
+            "economize",
+            "curtail",
+            "reduce"
+        ]
+    },
+    {
+        "word": "self-indulgent",
+        "phonetic": "/ˌsɛlfɪnˈdʌldʒənt/",
+        "definition": "characterized by giving oneself excessive pleasure or comfort",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "His self-indulgent spending left him with little saved for emergencies.",
+        "synonyms": [
+            "hedonistic",
+            "intemperate",
+            "selfish"
+        ]
+    },
+    {
+        "word": "speculate",
+        "phonetic": "/ˈspɛkjəleɪt/",
+        "definition": "to form a theory or conjecture without firm evidence",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "Economists speculate about how the stimulus will affect inflation.",
+        "synonyms": [
+            "conjecture",
+            "hypothesize",
+            "suppose"
+        ]
+    },
+    {
+        "word": "staid",
+        "phonetic": "/steɪd/",
+        "definition": "sedate, respectable, and unadventurous",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "The club's staid atmosphere did not appeal to young members.",
+        "synonyms": [
+            "serious",
+            "sober",
+            "restrained"
+        ]
+    },
+    {
+        "word": "suppress",
+        "phonetic": "/səˈprɛs/",
+        "definition": "to forcibly put an end to something or prevent it from being known",
+        "part_of_speech": "verb",
+        "group": 35,
+        "example": "The regime tried to suppress the protest with heavy fines.",
+        "synonyms": [
+            "quash",
+            "stifle",
+            "repress"
+        ]
+    },
+    {
+        "word": "vestigial",
+        "phonetic": "/ˌvɛstɪˈdʒiəl/",
+        "definition": "remaining as a small trace of something that once existed",
+        "part_of_speech": "adjective",
+        "group": 35,
+        "example": "The whale's hind limb remnants are vestigial.",
+        "synonyms": [
+            "residual",
+            "rudimentary",
+            "undeveloped"
+        ]
+    },
+    {
+        "word": "accord",
+        "phonetic": "/əˈkɔːrd/",
+        "definition": "an agreement or harmony between people or groups",
+        "part_of_speech": "noun",
+        "group": 36,
+        "example": "The two countries signed an accord to reduce tariffs.",
+        "synonyms": [
+            "agreement",
+            "harmony",
+            "concord"
+        ]
+    },
+    {
+        "word": "ad hoc",
+        "phonetic": "/æd ˈhɒk/",
+        "definition": "formed or used for a specific purpose, often improvised",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "An ad hoc committee was assembled to handle the emergency.",
+        "synonyms": [
+            "improvised",
+            "makeshift",
+            "temporary"
+        ]
+    },
+    {
+        "word": "adhere",
+        "phonetic": "/ədˈhɪər/",
+        "definition": "to stick firmly to something or to follow closely",
+        "part_of_speech": "verb",
+        "group": 36,
+        "example": "You must adhere to the safety regulations while on site.",
+        "synonyms": [
+            "stick",
+            "cling",
+            "abide"
+        ]
+    },
+    {
+        "word": "all-ecompassing",
+        "phonetic": "/ˌɔːl ɪkˈkʌmpəsɪŋ/",
+        "definition": "including everything; comprehensive",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The report offered an all-ecompassing review of the education system.",
+        "synonyms": [
+            "comprehensive",
+            "all-inclusive",
+            "thorough"
+        ]
+    },
+    {
+        "word": "aphorism",
+        "phonetic": "/ˈæfərɪzəm/",
+        "definition": "a concise statement of a general truth or principle",
+        "part_of_speech": "noun",
+        "group": 36,
+        "example": "Her writing was full of memorable aphorisms.",
+        "synonyms": [
+            "maxim",
+            "proverb",
+            "adage"
+        ]
+    },
+    {
+        "word": "benchmark",
+        "phonetic": "/ˈbɛntʃmɑːrk/",
+        "definition": "a standard or point of reference for judging performance",
+        "part_of_speech": "noun",
+        "group": 36,
+        "example": "This test serves as a benchmark for student progress.",
+        "synonyms": [
+            "standard",
+            "criterion",
+            "yardstick"
+        ]
+    },
+    {
+        "word": "blighted",
+        "phonetic": "/ˈblaɪtɪd/",
+        "definition": "damaged, ruined, or marred by disease or decay",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The once-thriving neighborhood became blighted after the factory closed.",
+        "synonyms": [
+            "ruined",
+            "devastated",
+            "marred"
+        ]
+    },
+    {
+        "word": "content",
+        "phonetic": "/kənˈtɛnt/",
+        "definition": "satisfied and at ease with one's situation",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "She seemed content with her quiet life in the countryside.",
+        "synonyms": [
+            "satisfied",
+            "pleased",
+            "fulfilled"
+        ]
+    },
+    {
+        "word": "debase",
+        "phonetic": "/dɪˈbeɪs/",
+        "definition": "to lower in quality, dignity, or value",
+        "part_of_speech": "verb",
+        "group": 36,
+        "example": "The scandal did much to debase the politician's reputation.",
+        "synonyms": [
+            "degrade",
+            "demean",
+            "cheapen"
+        ]
+    },
+    {
+        "word": "disconcerting",
+        "phonetic": "/ˌdɪskənˈsɜːrtɪŋ/",
+        "definition": "causing unease or confusion",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "It was disconcerting to see so many empty streets at midday.",
+        "synonyms": [
+            "unsettling",
+            "disturbing",
+            "troubling"
+        ]
+    },
+    {
+        "word": "extant",
+        "phonetic": "/ˈɛkstənt/",
+        "definition": "still in existence; surviving",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "Only a few extant copies of the rare book remain.",
+        "synonyms": [
+            "existing",
+            "surviving",
+            "present"
+        ]
+    },
+    {
+        "word": "facility",
+        "phonetic": "/fəˈsɪləti/",
+        "definition": "natural ease in doing something or a place designed for a specific function",
+        "part_of_speech": "noun",
+        "group": 36,
+        "example": "Her facility with languages made her a valuable translator.",
+        "synonyms": [
+            "ease",
+            "aptitude",
+            "capability"
+        ]
+    },
+    {
+        "word": "fitful",
+        "phonetic": "/ˈfɪtfəl/",
+        "definition": "occurring in irregular bursts; intermittent",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The storm produced fitful bursts of rain throughout the day.",
+        "synonyms": [
+            "sporadic",
+            "irregular",
+            "intermittent"
+        ]
+    },
+    {
+        "word": "incite",
+        "phonetic": "/ɪnˈsaɪt/",
+        "definition": "to encourage or stir up violent or unlawful behavior",
+        "part_of_speech": "verb",
+        "group": 36,
+        "example": "The speech seemed designed to incite unrest among the crowd.",
+        "synonyms": [
+            "provoke",
+            "instigate",
+            "spur"
+        ]
+    },
+    {
+        "word": "induce",
+        "phonetic": "/ɪnˈduːs/",
+        "definition": "to bring about or cause something to happen",
+        "part_of_speech": "verb",
+        "group": 36,
+        "example": "The medication can induce drowsiness in some patients.",
+        "synonyms": [
+            "cause",
+            "persuade",
+            "bring about"
+        ]
+    },
+    {
+        "word": "infelicity",
+        "phonetic": "/ˌɪnfəˈlɪsəti/",
+        "definition": "a mistake or awkward expression",
+        "part_of_speech": "noun",
+        "group": 36,
+        "example": "The politician's infelicity in phrasing drew sharp criticism.",
+        "synonyms": [
+            "awkwardness",
+            "mistake",
+            "inappropriateness"
+        ]
+    },
+    {
+        "word": "intelligible",
+        "phonetic": "/ɪnˈtɛlɪdʒəbəl/",
+        "definition": "able to be understood; clear",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The instructions were surprisingly intelligible despite the technical topic.",
+        "synonyms": [
+            "understandable",
+            "comprehensible",
+            "clear"
+        ]
+    },
+    {
+        "word": "makeshift",
+        "phonetic": "/ˈmeɪkʃɪft/",
+        "definition": "temporary and usually less effective than the regular thing",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "They used a makeshift shelter until the rain stopped.",
+        "synonyms": [
+            "temporary",
+            "provisional",
+            "improvised"
+        ]
+    },
+    {
+        "word": "onetime",
+        "phonetic": "/ˈwʌnˌtaɪm/",
+        "definition": "former; having happened in the past",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The onetime champion returned to the court for one last match.",
+        "synonyms": [
+            "former",
+            "previous",
+            "once"
+        ]
+    },
+    {
+        "word": "opportunistic",
+        "phonetic": "/ˌɒpərˈtjuːnɪstɪk/",
+        "definition": "taking advantage of situations with little regard for principle",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "His opportunistic behavior earned him short-term gains but long-term distrust.",
+        "synonyms": [
+            "exploitative",
+            "calculating",
+            "self-serving"
+        ]
+    },
+    {
+        "word": "plausible",
+        "phonetic": "/ˈplɔːzəbəl/",
+        "definition": "seeming reasonable or probable",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The explanation sounded plausible enough to the jury.",
+        "synonyms": [
+            "credible",
+            "believable",
+            "reasonable"
+        ]
+    },
+    {
+        "word": "posturing",
+        "phonetic": "/ˈpɒstʃərɪŋ/",
+        "definition": "adopting an attitude intended to impress or mislead others",
+        "part_of_speech": "noun",
+        "group": 36,
+        "example": "The politician’s posturing made the negotiation more difficult.",
+        "synonyms": [
+            "posing",
+            "pretense",
+            "grandstanding"
+        ]
+    },
+    {
+        "word": "potent",
+        "phonetic": "/ˈpoʊtənt/",
+        "definition": "having great power, influence, or effect",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The medicine proved to be a potent cure for the infection.",
+        "synonyms": [
+            "powerful",
+            "strong",
+            "effective"
+        ]
+    },
+    {
+        "word": "redundant",
+        "phonetic": "/rɪˈdʌndənt/",
+        "definition": "unnecessarily repetitive or no longer needed",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "His report contained too much redundant wording.",
+        "synonyms": [
+            "superfluous",
+            "unnecessary",
+            "repetitive"
+        ]
+    },
+    {
+        "word": "sacrosanct",
+        "phonetic": "/ˌsækrəˈsæŋkt/",
+        "definition": "regarded as too important or valuable to be interfered with",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "Freedom of speech is sacrosanct in a democratic society.",
+        "synonyms": [
+            "sacred",
+            "inviolable",
+            "hallowed"
+        ]
+    },
+    {
+        "word": "shrewd",
+        "phonetic": "/ʃruːd/",
+        "definition": "having sharp powers of judgment",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "A shrewd investor knows when to buy and when to sell.",
+        "synonyms": [
+            "astute",
+            "sharp",
+            "perspicacious"
+        ]
+    },
+    {
+        "word": "unadorned",
+        "phonetic": "/ˌʌnəˈdɔːrnd/",
+        "definition": "plain and simple; not decorated",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The essay was written in an unadorned style.",
+        "synonyms": [
+            "plain",
+            "simple",
+            "austere"
+        ]
+    },
+    {
+        "word": "valedictory",
+        "phonetic": "/ˌvælɪˈdɪktəri/",
+        "definition": "serving as a farewell",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "His valedictory speech brought tears to the audience.",
+        "synonyms": [
+            "farewell",
+            "parting",
+            "closing"
+        ]
+    },
+    {
+        "word": "warranted",
+        "phonetic": "/ˈwɔːrəntɪd/",
+        "definition": "justified or deserved",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "The concern is warranted given recent events.",
+        "synonyms": [
+            "justified",
+            "deserved",
+            "reasonable"
+        ]
+    },
+    {
+        "word": "wistful",
+        "phonetic": "/ˈwɪstfəl/",
+        "definition": "full of yearning or longing, often with melancholy",
+        "part_of_speech": "adjective",
+        "group": 36,
+        "example": "She gave a wistful glance toward the old photographs.",
+        "synonyms": [
+            "nostalgic",
+            "yearning",
+            "melancholic"
+        ]
+    },
+    {
+        "word": "attribute",
+        "phonetic": "/əˈtrɪbjuːt/",
+        "definition": "to regard something as being caused by someone or something",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "They attribute their success to careful planning.",
+        "synonyms": [
+            "ascribe",
+            "credit",
+            "impute"
+        ]
+    },
+    {
+        "word": "calamitous",
+        "phonetic": "/kəˈlæmɪtəs/",
+        "definition": "involving disastrous consequences",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The storm had calamitous effects on the coastal towns.",
+        "synonyms": [
+            "catastrophic",
+            "disastrous",
+            "ruinous"
+        ]
+    },
+    {
+        "word": "censor",
+        "phonetic": "/ˈsɛnsər/",
+        "definition": "to examine and remove objectionable material",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "The publisher decided to censor the controversial scene.",
+        "synonyms": [
+            "redact",
+            "suppress",
+            "bowdlerize"
+        ]
+    },
+    {
+        "word": "champion",
+        "phonetic": "/ˈtʃæmpiən/",
+        "definition": "to support or defend a cause or person",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "She continues to champion environmental protections.",
+        "synonyms": [
+            "advocate",
+            "defend",
+            "support"
+        ]
+    },
+    {
+        "word": "compound",
+        "phonetic": "/kəmˈpaʊnd/",
+        "definition": "to make a situation worse by adding to it",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "His careless mistake only compounded the problem.",
+        "synonyms": [
+            "aggravate",
+            "intensify",
+            "worsen"
+        ]
+    },
+    {
+        "word": "deter",
+        "phonetic": "/dɪˈtɜːr/",
+        "definition": "to discourage someone from doing something",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "High fines deter people from littering.",
+        "synonyms": [
+            "discourage",
+            "dissuade",
+            "prevent"
+        ]
+    },
+    {
+        "word": "dexterous",
+        "phonetic": "/ˈdɛkstərəs/",
+        "definition": "demonstrating skill and ease in physical or mental tasks",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The dexterous chef effortlessly prepared the intricate dish.",
+        "synonyms": [
+            "skillful",
+            "nimble",
+            "adept"
+        ]
+    },
+    {
+        "word": "dictum",
+        "phonetic": "/ˈdɪktəm/",
+        "definition": "a formal pronouncement or authoritative statement",
+        "part_of_speech": "noun",
+        "group": 37,
+        "example": "The judge issued a dictum that clarified the law.",
+        "synonyms": [
+            "pronouncement",
+            "maxim",
+            "saying"
+        ]
+    },
+    {
+        "word": "dutiful",
+        "phonetic": "/ˈdjuːtɪfəl/",
+        "definition": "showing a sense of duty and obedience",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The dutiful employee stayed late to finish the reports.",
+        "synonyms": [
+            "obedient",
+            "compliant",
+            "respectful"
+        ]
+    },
+    {
+        "word": "empathetic",
+        "phonetic": "/ˌɛmpəˈθɛtɪk/",
+        "definition": "showing understanding and sensitivity toward others' feelings",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "Her empathetic response comforted the grieving friend.",
+        "synonyms": [
+            "compassionate",
+            "understanding",
+            "sensitive"
+        ]
+    },
+    {
+        "word": "ensue",
+        "phonetic": "/ɛnˈsuː/",
+        "definition": "to follow as a result or consequence",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "After the announcement, a period of confusion ensued.",
+        "synonyms": [
+            "follow",
+            "result",
+            "arise"
+        ]
+    },
+    {
+        "word": "fathom",
+        "phonetic": "/ˈfæðəm/",
+        "definition": "to understand the meaning of something",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "She could not fathom why he had quit so suddenly.",
+        "synonyms": [
+            "comprehend",
+            "grasp",
+            "understand"
+        ]
+    },
+    {
+        "word": "frank",
+        "phonetic": "/fræŋk/",
+        "definition": "honest, open, and direct in speech",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "He gave her a frank assessment of her performance.",
+        "synonyms": [
+            "candid",
+            "honest",
+            "direct"
+        ]
+    },
+    {
+        "word": "germane",
+        "phonetic": "/dʒərˈmeɪn/",
+        "definition": "relevant to the matter at hand",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "Only germane arguments were allowed during the debate.",
+        "synonyms": [
+            "pertinent",
+            "relevant",
+            "appropriate"
+        ]
+    },
+    {
+        "word": "grumble",
+        "phonetic": "/ˈɡrʌmbəl/",
+        "definition": "to complain in a low voice or under one's breath",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "He continued to grumble about the long commute.",
+        "synonyms": [
+            "complain",
+            "mutter",
+            "gripe"
+        ]
+    },
+    {
+        "word": "hidebound",
+        "phonetic": "/ˈhaɪdbaʊnd/",
+        "definition": "rigidly conservative and unwilling to consider new ideas",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The hidebound committee rejected every novel proposal.",
+        "synonyms": [
+            "inflexible",
+            "narrow-minded",
+            "rigid"
+        ]
+    },
+    {
+        "word": "hypocrite",
+        "phonetic": "/ˈhɪpəkrɪt/",
+        "definition": "someone who pretends to have moral beliefs they do not follow",
+        "part_of_speech": "noun",
+        "group": 37,
+        "example": "He was accused of being a hypocrite after breaking his own rules.",
+        "synonyms": [
+            "phony",
+            "fraud",
+            "pretender"
+        ]
+    },
+    {
+        "word": "impolitic",
+        "phonetic": "/ˌɪmpəˈlɪtɪk/",
+        "definition": "not wise or prudent; tactless",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "It would be impolitic to criticize the mayor at the event.",
+        "synonyms": [
+            "unwise",
+            "tactless",
+            "imprudent"
+        ]
+    },
+    {
+        "word": "insidious",
+        "phonetic": "/ɪnˈsɪdiəs/",
+        "definition": "gradually harmful and often not immediately apparent",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The disease was insidious, producing symptoms only after years.",
+        "synonyms": [
+            "treacherous",
+            "subtle",
+            "pernicious"
+        ]
+    },
+    {
+        "word": "intermediary",
+        "phonetic": "/ˌɪntərˈmiːdiəri/",
+        "definition": "acting as a mediator or link between two parties",
+        "part_of_speech": "noun",
+        "group": 37,
+        "example": "The lawyer acted as an intermediary during the negotiations.",
+        "synonyms": [
+            "mediator",
+            "go-between",
+            "liaison"
+        ]
+    },
+    {
+        "word": "passive",
+        "phonetic": "/ˈpæsɪv/",
+        "definition": "accepting or allowing things to happen without active response",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "He took a passive stance and let others make the decisions.",
+        "synonyms": [
+            "inactive",
+            "submissive",
+            "unassertive"
+        ]
+    },
+    {
+        "word": "raillery",
+        "phonetic": "/ˈreɪləri/",
+        "definition": "good-humored teasing or light mockery",
+        "part_of_speech": "noun",
+        "group": 37,
+        "example": "Their friendly raillery kept the office atmosphere light.",
+        "synonyms": [
+            "banter",
+            "teasing",
+            "merriment"
+        ]
+    },
+    {
+        "word": "ramble",
+        "phonetic": "/ˈræmbəl/",
+        "definition": "to speak or write at length in a confused or aimless way",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "He tended to ramble when asked to explain his plan.",
+        "synonyms": [
+            "wander",
+            "digress",
+            "meander"
+        ]
+    },
+    {
+        "word": "resent",
+        "phonetic": "/rɪˈzɛnt/",
+        "definition": "to feel bitterness or indignation toward someone",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "She began to resent the extra work she had been assigned.",
+        "synonyms": [
+            "begrudge",
+            "envy",
+            "bitter"
+        ]
+    },
+    {
+        "word": "residual",
+        "phonetic": "/rɪˈzɪdʃuəl/",
+        "definition": "remaining after the main part has gone or been taken",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The residual effects of the storm lasted for days.",
+        "synonyms": [
+            "remaining",
+            "leftover",
+            "residual"
+        ]
+    },
+    {
+        "word": "resolve",
+        "phonetic": "/rɪˈzɒlv/",
+        "definition": "to decide firmly on a course of action",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "She resolved to finish the exam without any distractions.",
+        "synonyms": [
+            "determine",
+            "decide",
+            "settle"
+        ]
+    },
+    {
+        "word": "surrogate",
+        "phonetic": "/ˈsʌrəɡət/",
+        "definition": "a substitute or stand-in for someone else",
+        "part_of_speech": "noun",
+        "group": 37,
+        "example": "He acted as a surrogate speaker in the CEO's absence.",
+        "synonyms": [
+            "substitute",
+            "proxy",
+            "replacement"
+        ]
+    },
+    {
+        "word": "vilify",
+        "phonetic": "/ˈvɪlɪfaɪ/",
+        "definition": "to speak or write about someone in a disparaging manner",
+        "part_of_speech": "verb",
+        "group": 37,
+        "example": "The columnist chose to vilify the politician rather than criticize constructively.",
+        "synonyms": [
+            "defame",
+            "malign",
+            "slander"
+        ]
+    },
+    {
+        "word": "wanting",
+        "phonetic": "/ˈwɒntɪŋ/",
+        "definition": "lacking in some necessary quality or element",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "The plan was wanting in detail and failed to inspire confidence.",
+        "synonyms": [
+            "deficient",
+            "inadequate",
+            "lacking"
+        ]
+    },
+    {
+        "word": "willful",
+        "phonetic": "/ˈwɪlfəl/",
+        "definition": "intentionally stubborn or self-willed",
+        "part_of_speech": "adjective",
+        "group": 37,
+        "example": "His willful refusal to cooperate delayed the project.",
+        "synonyms": [
+            "deliberate",
+            "intentional",
+            "obstinate"
+        ]
+    },
+    {
+        "word": "querulous",
+        "phonetic": "/ˈkwɛrələs/",
+        "definition": "complaining in a petulant or whining manner",
+        "part_of_speech": "adjective",
+        "group": 38,
+        "example": "The querulous passenger complained about every detail of the trip.",
+        "synonyms": [
+            "petulant",
+            "complaining",
+            "irritable"
+        ]
+    },
+    {
+        "word": "phony",
+        "phonetic": "/ˈfoʊni/",
+        "definition": "not genuine or sincere; fake",
+        "part_of_speech": "adjective",
+        "group": 38,
+        "example": "His phony charm quickly wore thin among his peers.",
+        "synonyms": [
+            "fake",
+            "insincere",
+            "counterfeit"
+        ]
+    },
+    {
+        "word": "check",
+        "phonetic": "/tʃɛk/",
+        "definition": "to stop or slow the progress of something",
+        "part_of_speech": "verb",
+        "group": 38,
+        "example": "They needed to check the spread of the virus immediately.",
+        "synonyms": [
+            "restrain",
+            "curb",
+            "halt"
+        ]
     }
 ];

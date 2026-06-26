@@ -416,7 +416,8 @@ function saveStatus() {
 function buildGroupBar() {
   if (!groupBar) return;
   groupBar.innerHTML = '';
-  for (let i = 1; i <= 34; i += 1) {
+  const maxGroup = VOCAB_DATA.reduce((max, entry) => Math.max(max, entry.group), 0);
+  for (let i = 1; i <= maxGroup; i += 1) {
     const chip = document.createElement('button');
     chip.type = 'button';
     chip.className = 'group-chip';

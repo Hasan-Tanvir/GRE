@@ -6,6 +6,8 @@ const studyNotes = document.getElementById('study-notes');
 const bankSearch = document.getElementById('bank-search');
 const groupBar = document.getElementById('group-bar');
 const groupSelectionLabel = document.getElementById('group-selection-label');
+const viewGroupButton = document.getElementById('view-group-mode');
+const viewAlphabetButton = document.getElementById('view-alphabet-mode');
 const modeSingle = document.getElementById('mode-single');
 const modeMulti = document.getElementById('mode-multi');
 const statusButtons = Array.from(document.querySelectorAll('.status-button'));
@@ -40,6 +42,7 @@ let selectedGroups = [];
 let multiSelectMode = true;
 let activeStatusFilter = 'all';
 let rangeStartGroup = null;
+let viewMode = 'group';
 let pronunciationMap = {};
 
 const SUPABASE_URL = 'https://jwqyenqxyhiqbvywznxb.supabase.co';
@@ -357,7 +360,7 @@ function filterBank() {
   const selectedGroupIds = selectedGroups.map((group) => String(group));
 
   filteredBank = VOCAB_DATA.filter((entry) => {
-    const matchesGroup = selectedGroupIds.length === 0 || selectedGroupIds.includes(String(entry.group));
+    const matchesGroup = viewMode === 'alphabet' || selectedGroupIds.length === 0 || selectedGroupIds.includes(String(entry.group));
     const matchesSearch = searchValue
       ? entry.word.toLowerCase().includes(searchValue) ||
         entry.definition.toLowerCase().includes(searchValue) ||
@@ -372,10 +375,39 @@ function filterBank() {
     return matchesGroup && matchesSearch && matchesStatus;
   });
 
+  if (viewMode === 'alphabet') {
+    filteredBank = filteredBank.slice().sort((a, b) => a.word.localeCompare(b.word));
+  }
+
   renderBank();
   updatePracticeStats();
 }
 
+function setViewMode(mode) {
+  viewMode = mode;
+  if (mode === 'alphabet') {
+    selectedGroups = [];
+    rangeStartGroup = null;
+  }
+
+  if (viewGroupButton && viewAlphabetButton) {
+    viewGroupButton.classList.toggle('active', mode === 'group');
+    viewAlphabetButton.classList.toggle('active', mode === 'alphabet');
+  }
+
+  const groupToggle = document.querySelector('.group-toggle');
+  const groupModeHint = document.getElementById('group-mode-hint');
+  if (groupToggle) {
+    groupToggle.classList.toggle('hidden', mode === 'alphabet');
+  }
+  if (groupModeHint) {
+    groupModeHint.textContent = mode === 'alphabet'
+      ? 'Browsing the full word list in alphabetical order.'
+      : 'In range mode, click one group to start and another to end the range.';
+  }
+  updateGroupBar();
+  filterBank();
+}
 
 function saveStatus() {
   localStorage.setItem('vocabMountainStatus', JSON.stringify(wordStatus));
@@ -397,6 +429,7 @@ function buildGroupBar() {
 
 function updateGroupBar() {
   if (!groupBar) return;
+  groupBar.classList.toggle('hidden', viewMode === 'alphabet');
   groupBar.classList.toggle('single-mode', !multiSelectMode);
   groupBar.classList.toggle('multi-mode', multiSelectMode);
 
@@ -406,7 +439,9 @@ function updateGroupBar() {
   });
 
   if (groupSelectionLabel) {
-    if (selectedGroups.length === 0) {
+    if (viewMode === 'alphabet') {
+      groupSelectionLabel.textContent = 'Alphabetical browse: all words';
+    } else if (selectedGroups.length === 0) {
       groupSelectionLabel.textContent = 'Selected groups: All';
     } else if (selectedGroups.length === 1) {
       groupSelectionLabel.textContent = `Selected group: ${selectedGroups[0]}`;
@@ -426,6 +461,13 @@ function setMode(single) {
   rangeStartGroup = null;
   updateGroupBar();
   filterBank();
+}
+
+if (viewGroupButton) {
+  viewGroupButton.addEventListener('click', () => setViewMode('group'));
+}
+if (viewAlphabetButton) {
+  viewAlphabetButton.addEventListener('click', () => setViewMode('alphabet'));
 }
 
 function handleGroupChipClick(event) {
@@ -556,6 +598,7 @@ if (signOutButton) {
 window.addEventListener('DOMContentLoaded', async () => {
   await initSupabase();
   buildGroupBar();
+  setViewMode('group');
   setMode(false);
   setStatusFilter('all');
   loadSavedData();

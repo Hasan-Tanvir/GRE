@@ -143,14 +143,24 @@ button,
   display: grid;
   gap: 12px;
 }
+.view-toggle,
 .group-toggle {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
+.view-toggle {
+  margin-bottom: 6px;
+}
+.view-toggle .secondary-button,
 .group-toggle .secondary-button {
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.06);
+}
+.view-toggle .secondary-button.active,
+.group-toggle .secondary-button.active {
+  background: linear-gradient(135deg, #5b8bff, #3da7ff);
+  color: white;
 }
 .group-toggle .secondary-button.active {
   background: linear-gradient(135deg, #5b8bff, #3da7ff);

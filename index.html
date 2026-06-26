@@ -56,12 +56,16 @@
           <input id="bank-search" type="search" placeholder="Search words" />
         </div>
         <div class="group-control-panel">
+          <div class="view-toggle">
+            <button id="view-group-mode" type="button" class="secondary-button active">Group practice</button>
+            <button id="view-alphabet-mode" type="button" class="secondary-button">Alphabetical browse</button>
+          </div>
           <div class="group-toggle">
             <button id="mode-single" type="button" class="secondary-button">Single group</button>
             <button id="mode-multi" type="button" class="secondary-button active">Range groups</button>
           </div>
           <p id="group-selection-label" class="group-selection-label">Selected groups: All</p>
-          <p class="select-hint">In range mode, click one group to start and another to end the range.</p>
+          <p id="group-mode-hint" class="select-hint">In range mode, click one group to start and another to end the range.</p>
           <div id="group-bar" class="group-bar multi-mode" aria-label="Group selection"></div>
           <div class="status-filters">
             <button type="button" class="status-button active" data-filter="all">All</button>

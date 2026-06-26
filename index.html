@@ -60,6 +60,19 @@
             <button id="view-group-mode" type="button" class="secondary-button active">Group practice</button>
             <button id="view-alphabet-mode" type="button" class="secondary-button">Alphabetical browse</button>
           </div>
+          <div id="alphabet-controls" class="alphabet-controls hidden" aria-label="Alphabetical controls">
+            <div class="alphabet-bar" id="alphabet-bar" role="toolbar" aria-label="Jump to letter">
+              <!-- A-Z buttons inserted by script -->
+            </div>
+            <div class="alphabet-range">
+              <label>Range:</label>
+              <select id="alpha-start" aria-label="Start letter"></select>
+              <span class="range-sep">—</span>
+              <select id="alpha-end" aria-label="End letter"></select>
+              <button id="alpha-apply" type="button" class="secondary-button">Apply</button>
+              <button id="alpha-clear" type="button" class="secondary-button">Clear</button>
+            </div>
+          </div>
           <div class="group-toggle">
             <button id="mode-single" type="button" class="secondary-button">Single group</button>
             <button id="mode-multi" type="button" class="secondary-button active">Range groups</button>

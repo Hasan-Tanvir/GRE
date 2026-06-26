@@ -8,6 +8,12 @@ const groupBar = document.getElementById('group-bar');
 const groupSelectionLabel = document.getElementById('group-selection-label');
 const viewGroupButton = document.getElementById('view-group-mode');
 const viewAlphabetButton = document.getElementById('view-alphabet-mode');
+const alphabetControls = document.getElementById('alphabet-controls');
+const alphabetBar = document.getElementById('alphabet-bar');
+const alphaStart = document.getElementById('alpha-start');
+const alphaEnd = document.getElementById('alpha-end');
+const alphaApply = document.getElementById('alpha-apply');
+const alphaClear = document.getElementById('alpha-clear');
 const modeSingle = document.getElementById('mode-single');
 const modeMulti = document.getElementById('mode-multi');
 const statusButtons = Array.from(document.querySelectorAll('.status-button'));
@@ -44,6 +50,7 @@ let activeStatusFilter = 'all';
 let rangeStartGroup = null;
 let viewMode = 'group';
 let pronunciationMap = {};
+let alphaFilter = null; // {start:'A', end:'C'} or {letter:'G'}
 
 const SUPABASE_URL = 'https://jwqyenqxyhiqbvywznxb.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3cXllbnF4eWhpcWJ2eXd6bnhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4NzE1ODYsImV4cCI6MjA5NzQ0NzU4Nn0.tDhdEB7LxGrH_dDitdo9yU4oSb7b6IwWdH6CMFVjrGw';
@@ -375,6 +382,16 @@ function filterBank() {
     return matchesGroup && matchesSearch && matchesStatus;
   });
 
+  // apply alphabet filter if set
+  if (viewMode === 'alphabet' && alphaFilter) {
+    const start = (alphaFilter.start || alphaFilter.letter).toLowerCase();
+    const end = (alphaFilter.end || alphaFilter.letter).toLowerCase();
+    filteredBank = filteredBank.filter((e) => {
+      const first = e.word.charAt(0).toLowerCase();
+      return first >= start && first <= end;
+    });
+  }
+
   if (viewMode === 'alphabet') {
     filteredBank = filteredBank.slice().sort((a, b) => a.word.localeCompare(b.word));
   }
@@ -404,6 +421,10 @@ function setViewMode(mode) {
     groupModeHint.textContent = mode === 'alphabet'
       ? 'Browsing the full word list in alphabetical order.'
       : 'In range mode, click one group to start and another to end the range.';
+  }
+  if (alphabetControls) {
+    alphabetControls.classList.toggle('hidden', mode !== 'alphabet');
+    if (mode !== 'alphabet') alphaFilter = null;
   }
   updateGroupBar();
   filterBank();
@@ -450,6 +471,52 @@ function updateGroupBar() {
       groupSelectionLabel.textContent = `Selected groups: ${selectedGroups[0]}–${selectedGroups[selectedGroups.length - 1]}`;
     }
   }
+}
+
+function buildAlphabetControls() {
+  if (!alphabetBar || !alphaStart || !alphaEnd || !alphaApply || !alphaClear) return;
+  alphabetBar.innerHTML = '';
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  letters.forEach((L) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = L;
+    b.dataset.letter = L;
+    b.addEventListener('click', () => {
+      // toggle single-letter filter
+      if (alphaFilter && alphaFilter.letter === L) {
+        alphaFilter = null;
+        b.classList.remove('active');
+      } else {
+        alphaFilter = { letter: L };
+        Array.from(alphabetBar.querySelectorAll('button')).forEach((btn) => btn.classList.toggle('active', btn.dataset.letter === L));
+      }
+      filterBank();
+    });
+    alphabetBar.appendChild(b);
+  });
+
+  // populate selects
+  alphaStart.innerHTML = letters.map((L) => `<option value="${L}">${L}</option>`).join('');
+  alphaEnd.innerHTML = letters.map((L) => `<option value="${L}">${L}</option>`).join('');
+
+  alphaApply.addEventListener('click', () => {
+    const s = alphaStart.value;
+    const e = alphaEnd.value;
+    if (!s || !e) return;
+    if (s <= e) alphaFilter = { start: s, end: e };
+    else alphaFilter = { start: e, end: s };
+    Array.from(alphabetBar.querySelectorAll('button')).forEach((btn) => btn.classList.remove('active'));
+    filterBank();
+  });
+
+  alphaClear.addEventListener('click', () => {
+    alphaFilter = null;
+    alphaStart.selectedIndex = 0;
+    alphaEnd.selectedIndex = alphaEnd.options.length - 1;
+    Array.from(alphabetBar.querySelectorAll('button')).forEach((btn) => btn.classList.remove('active'));
+    filterBank();
+  });
 }
 
 function setMode(single) {
@@ -605,6 +672,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   loadSavedData();
   filterBank();
   updatePracticeStats();
+  buildAlphabetControls();
+  // ensure alphabet controls visibility matches initial view
+  if (alphabetControls) alphabetControls.classList.add('hidden');
 });
 
 function shuffleArray(array) {

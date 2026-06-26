@@ -166,6 +166,39 @@ button,
   background: linear-gradient(135deg, #5b8bff, #3da7ff);
   color: white;
 }
+
+.alphabet-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.alphabet-bar {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 6px;
+}
+.alphabet-bar button {
+  padding: 6px 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+}
+.alphabet-bar button.active {
+  background: linear-gradient(135deg, #7c9eff, #5bb3ff);
+  color: white;
+}
+.alphabet-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.alphabet-range select {
+  padding: 4px 6px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.alphabet-controls.hidden { display: none; }
 .group-selection-label {
   color: #d0d8ff;
   font-size: 0.95rem;
